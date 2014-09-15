@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="en" xmlns:ng="http://angularjs.org" ng-app="myApp" id="ng-app" ng-controller="ApplicationController">
+<html lang="en" xmlns:ng="http://angularjs.org" ng-app="myApp" id="ng-app">
 <head>
-	<base href="/gtcc/" > 
+	<base href="/angular-rest-recaptcha/" > 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no ">
     <meta name="fragment" content="!">
@@ -16,22 +16,15 @@
 </head>
 
 <body>
-    
+    <div ng-view class="container"></div> 
 
-    <!--<script src="js/lib/jquery.min.js"></script>    
-	<script src="js/lib/jquery.cycle.all.min.js"></script>-->
-	<script src="js/lib/angular.min.js"></script>  
-	<script src="js/lib/angular-ui-router.min.js"></script>
-    <!--<script src="js/lib/angular-route.min.js"></script> 
-    <script src="js/lib/angular-cookies.js"></script>    
-    <script src="js/lib/angular-re-captcha.js"></script> -->
+	<script src="js/lib/angular.min.js"></script>  	
+    <script src="js/lib/angular-route.min.js"></script>
+    <script src="js/lib/angular-re-captcha.js"></script> 
 
     <script src="js/app.js"></script>
-    <script src="js/services.js"></script>
-    <!--<script src="js/filters.js"></script>-->
-    <!--<script src="js/lib/directives.js"></script> -->
+    <script src="js/services.js"></script>    
     <script src="js/controllers.js"></script>       
-    <!--<script src="js/main.js"></script>-->
 </body>
 
 </html>
