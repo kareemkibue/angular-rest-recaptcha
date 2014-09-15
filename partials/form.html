@@ -1,0 +1,62 @@
+<div class="row">
+<section class="col-md-4 col-sm-12">				
+	
+	<h1>Contact Us</h1>
+
+	<form name="contactForm" ng-Controller="ContactController" ng-submit="send()" novalidate role="form" >
+		<div class="form-group">
+			 <label for="inputNames" class="control-label">Names</label>
+			<input ng-model="contact.fullnames" type="text" name="fullnames" placeholder="Enter Full Names" ng-maxlength="30" ng-minlength="2" class="form-control" id="inputNames"  required />
+
+			<div class="error" ng-show=" (contactForm.fullnames.$dirty && contactForm.fullnames.$invalid) || (val.submitted && contactForm.fullnames.$invalid) ">	
+				<small class="error" ng-show="contactForm.fullnames.$error.required ">Full Names are Required</small>		
+				<small class="error" ng-show="contactForm.fullnames.$error.minlength">Invalid Names</small>		
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="inputEmail" class="control-label">Email</label>
+			<input ng-model="contact.email" type="email" name="email" placeholder="name@company.com" ng-maxlength="32" class="form-control" id="inputEmail" ng-minlength="5" required />
+
+			<div class="error" ng-show=" (contactForm.email.$dirty && contactForm.email.$invalid) || (val.submitted && contactForm.email.$invalid) ">		
+				<small class="error" ng-show="contactForm.email.$error.required">Email Address is Required</small>	
+				<small class="error" ng-show="contactForm.email.$error.minlength || contactForm.email.$error.email">Invalid Email Address</small>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="inputPhone" class="control-label">Phone</label>
+			<input ng-model="contact.phone" type="text" name="phone" placeholder="Enter Phone Number" ng-maxlength="15" class="form-control" id="inputPhone" ng-minlength="10" required />
+
+			<div class="error" ng-show=" (contactForm.phone.$dirty && contactForm.phone.$invalid) || (val.submitted && contactForm.phone.$invalid) ">		
+				<small class="error" ng-show="contactForm.phone.$error.required">Phone Number is Required</small>	
+				<small class="error" ng-show="contactForm.phone.$error.minlength ">Invalid Phone Number</small>	
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="inputMessage" class="control-label">Message</label>
+			<textarea ng-model="contact.message" name="message" placeholder="Enter Your Message Here" maxlength="250" class="form-control" id="inputMessage" required></textarea>
+
+			<div class="error" ng-show=" (contactForm.message.$dirty && contactForm.message.$invalid) || (val.submitted && contactForm.message.$invalid) ">				
+				<small class="error" ng-show="contactForm.message.$error.required ">Message is Required</small>			
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="" class="control-label">Enter the Code</label>
+		
+			<div re-captcha ng-model="contact.captcha"></div>
+
+			<div class="error" ng-show=" (contactForm.recaptcha_response_field.$dirty && contactForm.recaptcha_response_field.$invalid) || (val.submitted && contactForm.recaptcha_response_field.$invalid) ">			
+				<small class="error" ng-show="contactForm.recaptcha_response_field.$error.required">Please enter the Above Code</small>			
+			</div>		
+		</div>
+
+		<span class="feedback help-block" ng-show="val.feedback">{{ val.feedback }}</span>
+		<input type="submit" class="btn btn-primary" value="SEND" />
+
+	</form>
+
+</section>
+</div>
