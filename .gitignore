@@ -1,4 +1,6 @@
 lib/*
+.sass-cache/*
+sass/*
 index.sublime-workspace
 .htaccess
 img/*
