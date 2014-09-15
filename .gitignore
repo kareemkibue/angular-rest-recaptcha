@@ -1,0 +1,14 @@
+lib/*
+index.sublime-workspace
+.htaccess
+img/*
+screens/*
+sass/bootstrap-sass/*
+js/data/*
+js/lib/*
+CONTENT/*
+
+#Hidden system files
+*.DS_Store
+*[Tt]humbs.db
+*.Trashes

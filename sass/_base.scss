@@ -1,0 +1,523 @@
+//IMPORTS
+@import "compass/reset";
+//@import "compass/utilities";
+@import "compass/css3";
+@import "compass/layout.scss";
+@import "compass/typography";
+
+//@import url(http://fonts.googleapis.com/css?family=Lato);
+//@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Roboto:500,400,300,100);
+@font-face {
+  font-family: "Bebas";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/BebasNeue-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/BebasNeue-webfont.woff") format("woff"), url("fonts/BebasNeue-webfont.ttf") format("truetype"), url("fonts/BebasNeue-webfont.svg#BebasNeueRegular") format("svg");
+}
+
+
+//FONTS
+//$base-font:"Myriad Pro","Droid Sans", Arial, serif;
+//$base-font:"Droid Sans", Arial, serif;
+$bebas-font:Bebas, Arial, serif;
+$roboto-font:Roboto, Arial, serif;
+$opensans-font:"Open Sans", Arial, serif;
+$base-font-size: 12.5px;
+
+//COLORS
+$base-color: darken(#F88C00, 3%);	//#FF5A14;
+//$base-color: #FE920B;
+$alt-color: #fff;
+$gray1-color: #87818C;
+$gray2-color: #F7F7F7;
+$bg1-color: #F3F3F3;
+$bg2-color: #E9E9E9;
+$alt-link-color: #fff;
+$footer-bg-color: #333;
+$footer-color: #DDD;
+//$card-shadow-color: #A0A0A0;
+$text-color:#666;
+$bg-color:#F2F2F2;
+$menu-underline-color: #E6E6E6;
+$blue1-color: #4DA5B1;
+$blue2-color: #6D929B;
+$blue3-color: #48A4B1; //#4B9DAB;
+$blue4-color: #479FAD;
+$red1-color: #EF6238;
+$green1-color: #43BFA7; //#81b3ab;
+//$home-cat3-color: #C1DAD6;
+//$home-cat3-color: #098FD6;
+
+$ng-invalid-color: #FA787E;
+$ng-invalid-color: RED;
+$ng-valid-color: #78FA89;
+
+
+//PADDING
+//$footer-padding:1.5em 2em;
+
+//MEASUREMENTS
+$tile-width: 100% *1/3;
+$tile-height: 22em;	//130px
+
+$project-thumb-width: 14.25%;
+$project-thumb-height: 8em;
+$project-thumb-padding:	0.15em;
+
+//BORDERS
+$light-border: 1px solid #E8E8E8;
+
+
+//@include sticky-footer(100px, "#main-content", "#site-tiles", "#main-footer");
+@include sticky-footer(110px, "#content-wrap", "#main-footer", "#main-footer");
+//@include sticky-footer(100px);
+
+//PSEUDO ELEMENTS, STANDARDIZATION
+/*@mixin  placeholder-style($font, $color, $size){
+	::-webkit-input-placeholder{
+		font-family: $font;
+		color: $color;
+		size: $size;
+	} 
+	:-moz-placeholder{
+		font-family: $font;
+		color: $color;
+		size: $size;
+	} 
+	::-moz-placeholder{
+		font-family: $font;
+		color: $color;
+		size: $size;
+	} 
+	:-ms-input-placeholder{
+		font-family: $font;
+		color: $color;
+		size: $size;
+	} 
+}*/
+@mixin placeholder{
+	::-webkit-input-placeholder{ @content; } 
+	:-moz-placeholder{ @content; } 
+	::-moz-placeholder{ @content; } 
+	:-ms-input-placeholder{ @content; } 
+}
+@mixin selection {
+    ::-moz-selection { @content; }
+    ::selection { @content; }
+}
+@mixin arrow($width, $color){
+	border-left: $width solid $color;
+	border-bottom: $width solid transparent;
+	border-top: $width solid transparent;
+}
+
+
+
+//PAGE STYLING
+body *{
+	@include box-sizing(border-box !important);
+}
+body{
+	font-family: $roboto-font;	
+	font-size: $base-font-size;	
+	font-weight: 400;
+	color: $text-color;
+	//background-color: $bg-color;	
+
+	@include respond(smartphones){
+		font-size: 13.5px;
+	}
+}
+h1{
+	font-family: $roboto-font;
+	font-size: 1.8em;
+	font-weight: 300;
+	color:$base-color;	
+	margin-bottom: .5em;
+}
+h2{
+	font-family: $roboto-font;
+	font-size: 1.5em;
+	font-weight: 300;
+	color:$base-color;
+	margin-bottom: .5em;
+}
+h3{
+	font-family: $roboto-font;
+	font-size: 1.3em;
+	font-weight: 300;
+	color:$base-color;	
+	margin-bottom: .5em;
+}
+h4{
+	font-family: $roboto-font;
+	font-size: 1.2em;
+	font-weight: 500;
+	color:$base-color;	
+	margin-bottom: .5em;
+}
+h5{
+	font-family: $roboto-font;
+	font-size: 1.2em;
+	//font-weight: 500;
+	text-transform: uppercase;
+	color:$base-color;	
+	margin-bottom: .5em;	
+}
+a{
+	color: $base-color;
+	font-weight: 400;
+
+	&:link{
+		text-decoration:none;
+	}
+}
+//@include placeholder-style($base-font, $footer-bg-color, 0.8em);
+@include placeholder{
+	font-family: $roboto-font !important;
+	color: $footer-bg-color !important;
+	font-size: 0.90em !important;
+}
+
+div.content{
+	width: 100%;		
+	background-color: $alt-color;
+	overflow: hidden;
+	padding-bottom: 3em;
+}
+header.page-header{
+	width: 100%;
+	border-bottom: 1px solid #E8E8E8;
+	background-color: $alt-color;
+
+	div.mobile-top{
+		width: 100%;
+		display: none;
+		background-color: $gray2-color;
+		height: 4em;
+		padding: 0.25em 0px .6em;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 12;
+		@include box-shadow(#AAA 0 1px 6px);
+
+		@include respond(tablets-portrait){
+			display: block;
+		}
+
+		.mobile-menu{
+			/*display: inline-block;
+			float: left;
+			font-size: 3em;
+			padding: 0 .5em;
+			width: 1em;	*/		
+
+			position: relative;
+  			//padding-left: 1.25em;
+  			margin-left: 1em;
+  			float: left;
+  			display: block;
+  			margin: .5em 1em;
+
+  			&:before{
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 2.5em;
+				height: .4em;
+				border-top: 1.4em double $footer-bg-color;
+				border-bottom: 0.55em solid $footer-bg-color;
+  			}
+
+		}
+		.logo{
+			display: inline-block;
+			float: left;
+			height: 100%;
+			margin-left: 2em;
+			padding-top: 0.2em;
+
+			img{
+				height: 100%;
+			}
+		}
+	}
+	div.nav{
+		width: 100%;
+		display: block;
+	}
+
+	p.breadcrumb, div.welcome, div.account, div.login, div.logout{
+		//margin: 2em;
+		padding: 1.45em 1.75em;
+		display: inline-block;
+		font-size: 1.1em;
+
+		@include respond(smartphones){
+			font-size: .9em;
+			padding-left: 1em !important;
+			padding-right: 2em !important;
+		}
+	}
+	a{
+		color: inherit;
+
+		&:hover{
+			color:$base-color;
+		}
+	}
+	span.breadcrumb-arrow{
+		width: 0;
+		height: 0;			
+		/*border-left: 0.4em solid $text-color;
+		border-bottom: 0.4em solid transparent;
+		border-top: 0.4em solid transparent;*/
+		@include arrow(.4em, $text-color);
+		margin: 0 .75em;
+		display: inline-block;
+
+		@include respond(tablets-landscape){
+			@include arrow(.5em, $text-color);
+		}
+	}	
+	span:last-child{
+		color: $base-color;
+	}	
+	div.welcome, div.account, div.login, div.logout{
+		float: right;
+		height: 100%;					
+	}
+	div.account, div.login, div.logout{
+		text-transform: uppercase;
+		border-left: $light-border;
+		color: $base-color;
+	}
+	div.login, div.logout{
+		font-weight: 500;
+	}
+	div.login{
+		//padding: 1.75em 5em 1.75em 3em;	
+		padding-left: 3em;
+		padding-right: 5em;
+	}
+	div.welcome{
+		@include respond(smartphones){
+			display: none;
+		}
+	}
+}
+section.form-container{
+	padding: 2em;
+	width: 100%;
+	min-height: 28em;
+	clear: both;
+
+	.form-title{
+		width: 40%;
+		margin: 1em auto;
+
+		@include respond(tablets-landscape){
+			width: 60%;
+		}
+		@include respond(smartphones){
+			width: 80%;
+		}
+		@include respond(phones){
+			width: 100%;
+		}
+	}
+	form{
+		width: 40%;	
+		margin: 0 auto;
+
+		@include respond(tablets-landscape){
+			width: 60%;
+		}
+		@include respond(smartphones){
+			width: 80%;
+		}
+		@include respond(phones){
+			width: 100%;
+		}
+	}
+
+	h1 + p{
+		color: $base-color;
+		font-size: 1.1em;
+	}
+}
+
+//input:not([type="submit"]), input:not([type="button"]), textarea, select, .button{
+input[type="text"], input[type="email"], input[type="password"], input[type="file"], textarea, select{	
+	padding: 0.5em;	
+	color: $footer-bg-color;
+	border:1px $footer-color solid;
+	@include border-radius(0.2em);
+	font-family: $roboto-font;
+	font-size: 1em;
+	@include transition(all 0.10s ease-in-out);
+	
+	width: 65%;
+	margin-top: 0.25em;	
+	//margin-left: 0.5em;	
+
+	@include respond(smartphones){
+		width: 100%;
+	}
+
+	&:active, &:focus{
+		border:1px $base-color solid;
+		@include box-shadow(0 0 5px lighten($base-color, 25%));
+	}
+
+}
+input[type="checkbox"]{
+	//width: 65%;
+}
+select{
+	font-family: $roboto-font;
+	padding: 0.35em 0.5em;
+	
+	&:hover{
+		border-color: $base-color;
+	}
+	
+}
+option[style="display:none"]{
+	color: lighten($footer-bg-color,20%);
+	font-size: 0.95em;
+	//display: none;
+}
+textarea{
+	height: 75px;
+	max-height: 100px;
+}
+input[type="submit"], input[type="button"], .button{
+	background-color: $base-color;
+	color: $alt-color;
+	font-family: $roboto-font;
+	//padding: 0.4em 1.2em;
+	text-shadow:none;
+	border: 1px $base-color solid;	
+	//font-weight: bold;
+	text-transform: uppercase;
+	margin-left: 30%;
+	margin-top: 0.2em;
+	cursor: pointer;
+	padding: 0.3em 1.5em;	
+	clear: both;
+	display: block;
+	@include border-radius(2px);
+
+	border:1px #da7c0c solid;	
+	background-color: #f47c20;
+   	@include background-image(linear-gradient(top, #f88e11, #f06015));
+
+   	@include respond(smartphones){
+   		margin-left: 0;
+   		padding: .6em 3.5em;
+   	}
+
+	&:hover{
+		//color: rgba(255,255,255, 0.75);
+    	text-decoration: none;
+    	//@include box-shadow(inset 0 10px 20px darken($base-color, 5%));
+    	@include background-image(linear-gradient(top, #f06015, #f88e11));
+    	//color: #fef4e9;
+		background-color: #f78d1d;	
+	}
+	&:active{		
+		//@include box-shadow(inset 0 10px 20px rgba(255,255,255, 0.5));
+    	//@include box-shadow(inset 0 2px 2px rgba(0,0,0, 0.3), inset 0 10px 20px rgba(0,0,0, 0.08));
+    	position: relative;
+    	top: 1px;
+    	color: #fcd3a5;
+    	@include background-image(linear-gradient(top, #f47a20, #faa51a));
+	}
+	&.left-button{
+		margin-left: 0;
+	}
+}
+label{
+	display: block;
+	margin-bottom: 0.8em;
+	//font-family: $roboto-font;
+	//font-weight: 300;
+	//font-size: 0.8em;
+	width: 100%;	
+
+	span{
+		margin-bottom: 0.2em;		
+		width: 30%;
+		display: inline-block;		
+		//margin-right: 1em;
+		padding-right: 1em;
+		float: left;
+		margin-top: .5em;
+
+		@include respond(smartphones){
+			display: block;
+			width: 100%;
+		}
+	}
+}
+
+
+
+
+
+//CUSTOM SASS CLASSES
+.tile{
+	//padding:0px;	
+	//color: #fff;
+	//background-color: #000;
+}
+
+.box{
+	//@include box-sizing(border-box);	
+}
+.full-size{
+	width: 100% !important;
+	height: 100% !important;
+}
+.tile-behavior{
+	@include opacity(1);
+	//@include transition-duration(1s);
+
+	&:hover{
+		@include opacity(0.88);
+	}
+}
+.a-link-alt{
+	a {
+		color:$alt-link-color;
+
+		&:hover{
+			//@include scale(2, 2);
+			//transform:scale(1.1);
+			text-decoration:underline;
+
+		}
+	}		
+}
+.thumb-img{
+	width: 100%;
+	height: 100%;
+	@include opacity(0.75);
+	//@include filter(blur(20px), grayscale(50%));			
+	//filter: grayscale(100%);
+	@include transition-property(all);
+	@include transition-duration(0.5s);
+	@include transition-timing-function(ease);
+
+	&:hover{
+		@include opacity(0.9);					
+		@include scale(1.05);
+	}
+}
+	
+
+
