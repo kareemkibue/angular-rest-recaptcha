@@ -22,4 +22,6 @@ Configuration
 *Recaptcha server-side lib file already included and referenced in the CI controller 
 rest\application\libraries
 
+For Recaptcha UI customization, https://github.com/mllrsohn/angular-re-captcha
+
 Demo: http://qibue.com/recaptcha
