@@ -22,4 +22,4 @@ Configuration
 *Recaptcha server-side lib file already included and referenced in the CI controller 
 rest\application\libraries
 
-Demo: http://qibue.com/recaptha
+Demo: http://qibue.com/recaptcha
