@@ -8,7 +8,7 @@ screens/*
 sass/bootstrap-sass/*
 js/data/*
 js/lib/*
-CONTENT/*
+CONTENT/* 
 
 #Hidden system files
 *.DS_Store
