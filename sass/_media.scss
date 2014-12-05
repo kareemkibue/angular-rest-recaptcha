@@ -25,7 +25,7 @@ $smartphone-width:480px;*/
 
 //MIXINS
 @mixin respond($media) { 
-	@if $media == computers {
+	@if $media == computers { 
 	    @media only screen and (min-width : 1824px) { @content; }
 	}
 	@else if $media == laptops {
