@@ -1,4 +1,5 @@
 lib/*
+node-modules/*
 .sass-cache/*
 sass/*
 index.sublime-workspace
